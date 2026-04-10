@@ -13,6 +13,8 @@ help :
 	@echo "- help : affichage de l'aide"
 	@echo "\n"
 
+
+
 # Test 01 
 # Compilation intermédiaire du test
 $(BUILD)/test01.o : $(TEST)/test01.c
@@ -45,6 +47,12 @@ $(BUILD)/test03.o : $(TEST)/test03.c
 $(BUILD)/test03 : $(BUILD)/test03.o $(LIB)/liste-c.o
 	@echo "compilation du test"
 	gcc -Wall $(BUILD)/test03.o $(LIB)/liste-c.o -o $(BUILD)/test03
+
+
+#bunch_test02
+$(BUILD)/bench_test02 : $(BUILD)/test02.o $(LIB)/liste-c.o
+	@echo "compilation du test"
+	gcc -g -fsanitize=address -Wall $(BUILD)/test02.o $(LIB)/liste-c.o -o $(BUILD)/bench_test02
 
 # Nettoyage du projet 
 clean : 
