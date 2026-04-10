@@ -62,6 +62,24 @@ $(BUILD)/bench_test02 : $(BUILD)/test02.o $(LIB)/liste-c.o
 $(BUILD)/liste-c.o : $(SRC)/liste-c.c $(SRC)/liste-c.h
 	@echo "compilation.o de la librairie liste-c"
 	gcc -c -Wall $(SRC)/liste-c.c -o $(BUILD)/liste-c.o
+
+#Compilation test02 nouveau 
+
+#Test 02
+# Compilation intermédiaire du test
+$(BUILD)/test02_new.o : $(TEST)/test02.c
+	@echo "compilation.o du test"
+	gcc -I $(LIB) -c -Wall $(TEST)/test02.c -o $(BUILD)/test02_new.o
+
+# Compilation de test
+$(BUILD)/test02_new : $(BUILD)/test02_new.o $(BUILD)/liste-c.o
+	@echo "compilation du test"
+	gcc -Wall $(BUILD)/test02_new.o $(BUILD)/liste-c.o -o $(BUILD)/test02_new
+
+#bunch_test02
+$(BUILD)/bench_test02_new : $(BUILD)/test02_new.o $(BUILD)/liste-c.o
+	@echo "compilation du test"
+	gcc -g -fsanitize=address -Wall $(BUILD)/test02_new.o $(LIB)/liste-c_new.o -o $(BUILD)/bench_test02_new
 	
 
 # Nettoyage du projet 
