@@ -26,8 +26,19 @@ $(BUILD)/test02 : $(BUILD)/test02.o $(LIB)/liste-c.o
 	@echo "compilation du test"
 	gcc -Wall $(BUILD)/test02.o $(LIB)/liste-c.o -o $(BUILD)/test02
 
+#Test 03
+# Compilation intermédiaire du test
+$(BUILD)/test03.o : $(TEST)/test03.c
+	@echo "compilation.o du test"
+	gcc -I $(LIB) -c -Wall $(TEST)/test03.c -o $(BUILD)/test03.o
+
+# Compilation de test
+$(BUILD)/test03 : $(BUILD)/test03.o $(LIB)/liste-c.o
+	@echo "compilation du test"
+	gcc -Wall $(BUILD)/test03.o $(LIB)/liste-c.o -o $(BUILD)/test03
+
 # Nettoyage du projet 
 clean : 
 	@echo "suppression de tous les fichiers dans build"
-	rm -rf $(BUILD)/*
+	rm -rf $(BUILD)/*.o
 	

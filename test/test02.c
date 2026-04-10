@@ -1,4 +1,4 @@
-/* Test 1 */
+/* Test 2 */
 #include "liste-c.h"
 #include <stdio.h>
 
@@ -11,7 +11,7 @@ int affiche(ListeC liste){
     }
 
     printf("NULL \n");
-    
+
     return 0;
 }
 
