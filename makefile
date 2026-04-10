@@ -4,6 +4,7 @@ LIB = lib
 BUILD = build
 TEST = test
 
+# Test 01 
 # Compilation intermédiaire du test
 $(BUILD)/test01.o : $(TEST)/test01.c
 	@echo "compilation.o du test"
@@ -13,6 +14,17 @@ $(BUILD)/test01.o : $(TEST)/test01.c
 $(BUILD)/test01 : $(BUILD)/test01.o $(LIB)/liste-c.o
 	@echo "compilation du test"
 	gcc -Wall $(BUILD)/test01.o $(LIB)/liste-c.o -o $(BUILD)/test01
+
+#Test 02
+# Compilation intermédiaire du test
+$(BUILD)/test02.o : $(TEST)/test02.c
+	@echo "compilation.o du test"
+	gcc -I $(LIB) -c -Wall $(TEST)/test02.c -o $(BUILD)/test02.o
+
+# Compilation de test
+$(BUILD)/test02 : $(BUILD)/test02.o $(LIB)/liste-c.o
+	@echo "compilation du test"
+	gcc -Wall $(BUILD)/test02.o $(LIB)/liste-c.o -o $(BUILD)/test02
 
 # Nettoyage du projet 
 clean : 
