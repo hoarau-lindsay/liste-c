@@ -17,8 +17,11 @@ removeLC : enlever un élément de la liste
 
 char* versionLC();                 // Version de la liste chainé 
 
-struct st_listeC;                  // Création d'une structure 
-typedef struct st_listeC * ListeC; // Alias permettant de facilité l'appel 
+//struct st_listeC;                  // Création d'une structure 
+//typedef struct st_listeC * ListeC; // Alias permettant de facilité l'appel 
+typedef struct st_listeC{
+    struct st_listeC * premier; 
+} ListeC;
 
 ListeC createLC(); // Création d'une liste chainée 
 ListeC deleteLC(); // Supprimer de l'intégralité de la liste chainée 
@@ -39,4 +42,8 @@ typedef struct st_nodeLC{
     struct st_nodeLC * next;       // pointeur vers le noeud suivant de type struct st_nodeLC (NULL => noeud courant = dernier de la liste)
 } NodeLC;
 
+/* Liste chainée */
+typedef struct st_listeC {
+    NodeLC * premier;              // pointeur vers le premier nœud
+} ListeC;
 
