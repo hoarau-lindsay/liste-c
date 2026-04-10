@@ -32,3 +32,11 @@ void insertLC(ListeC liste, int value, int pos);  // insérer une valeur à une 
 void removeLC(ListeC liste, int pos);             // enlever un élément de la liste 
 
 // NB : dans cette version insertLC à la position 0 ne fonctionne pas pour mon liste-c.o dans mon dossier lib  
+
+/* Structure de donnée portant l'information de chauqe noeud*/
+typedef struct st_nodeLC{
+    int valeur;                    // valeur entière située sur ce noeud de la liste 
+    struct st_nodeLC * next;       // pointeur vers le noeud suivant de type struct st_nodeLC (NULL => noeud courant = dernier de la liste)
+} NodeLC;
+
+
