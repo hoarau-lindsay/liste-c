@@ -4,6 +4,15 @@ LIB = lib
 BUILD = build
 TEST = test
 
+help : 
+	@echo "\n\t:=:=: Cible disponible :=:=: \n"
+	@echo "- test01 : affichage du numéro de la version de la librairie liste-c"
+	@echo "- test02 : création d'une liste chaîner et affichage de cette liste"
+	@echo "- test03 : modification de la liste (remplacement, insertion, suppression)"
+	@echo "- clean : nettoyage des .o dans build"
+	@echo "- help : affichage de l'aide"
+	@echo "\n"
+
 # Test 01 
 # Compilation intermédiaire du test
 $(BUILD)/test01.o : $(TEST)/test01.c
