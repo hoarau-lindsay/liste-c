@@ -1,6 +1,7 @@
 #Makefile
 
 LIB = lib
+SRC = src
 BUILD = build
 TEST = test
 
@@ -9,8 +10,10 @@ help :
 	@echo "- test01 : affichage du numéro de la version de la librairie liste-c"
 	@echo "- test02 : création d'une liste chaîner et affichage de cette liste"
 	@echo "- test03 : modification de la liste (remplacement, insertion, suppression)"
+	@echo "- liste-c : compilation de la librairie dans dossier src"
 	@echo "- clean : nettoyage des .o dans build"
 	@echo "- help : affichage de l'aide"
+
 	@echo "\n"
 
 
@@ -53,6 +56,13 @@ $(BUILD)/test03 : $(BUILD)/test03.o $(LIB)/liste-c.o
 $(BUILD)/bench_test02 : $(BUILD)/test02.o $(LIB)/liste-c.o
 	@echo "compilation du test"
 	gcc -g -fsanitize=address -Wall $(BUILD)/test02.o $(LIB)/liste-c.o -o $(BUILD)/bench_test02
+
+
+#Compilation de la librairie liste-c
+$(BUILD)/liste-c.o : $(SRC)/liste-c.c $(SRC)/liste-c.h
+	@echo "compilation.o de la librairie liste-c"
+	gcc -c -Wall $(SRC)/liste-c.c -o $(BUILD)/liste-c.o
+	
 
 # Nettoyage du projet 
 clean : 

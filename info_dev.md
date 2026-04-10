@@ -15,6 +15,12 @@ Dépôt git disponible à l'adresse suivante : [Rétro-engineering d'une librair
 ### Sommaire
 - [Introduction](#introduction)
 - [Git](#git)
+- [pragma once](#la-directive-pragma-once)
 
 ---
 
+### La directive #pragma once 
+
+**#praga once** est une directive de préprocessur permettant d'éviter les conflits qui permet d'éviter les conflits dût à des  l’inclusion multiple d’un même fichier lors de la compilation indiquant au compilateur de ne l’inclure qu’une seule fois dans une même compilation. 
+
+Pour en savoir plus : [Wikipedia](https://fr.wikipedia.org/wiki/Pragma_once)
